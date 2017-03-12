@@ -2,59 +2,70 @@
 
 using namespace std;
 
-class tablica // klasa tablca
+class tab_dyn // klasa tab_dyn
 {
-	private:
-	/*
-	zdefiniowane funkcje prywatne na klasie tablica
-	*/
+public:
+	int stworz_tablice();
+	void rozmiar_tablicy();
+	int dodaj_element();
+	void wyswietl_element();
 
-	unsigned int ROZMIAR;
-	int tab[]; // definicja obiektu tab
+private:
+	int tablica[];
+	int ROZMIAR;
 
-	int powieksz_tablice();
-	int pomniejsz_tablice();
-
-	public:
-	/*
-	zdefiniowane funkcje publiczne na klasie tablica
-	*/
-
-	int rozmiar(int ROZMIAR);
-	int zapisanie_elementu(int indeks, int wartosc);
-	void odczytanie_elementu(int indeks);
 };
 
-/*
-metody
-*/
-
-int tablica::rozmiar(int ROZMIAR)
+int tab_dyn::stworz_tablice()
 {
-	return ROZMIAR;
+	cout << "Podaj poczatkowy rozmiar tablicy: ";
+	cin >> ROZMIAR;
+
+	tablica[ROZMIAR];
+
+	return tablica[ROZMIAR];
 }
 
-int tablica::zapisanie_elementu(int indeks, int wartosc)
+void tab_dyn::rozmiar_tablicy()
 {
-	cout << "Podaj indeks tablicy: ";
+	cout << ROZMIAR << endl;
+}
+
+int tab_dyn::dodaj_element()
+{
+	int element, indeks;
+
+	cout << "Podaj indeks: ";
 	cin >> indeks;
 	cout << "Podaj wartosc elementu: ";
-	cin >> wartosc;
+	cin >> element;
 
-	return indeks, wartosc;
+	tablica[indeks] = element;
+
+	return tablica[ROZMIAR];
 }
 
-void tablica::odczytanie_elementu(int indeks)
+void tab_dyn::wyswietl_element()
 {
-	cout << "Podaj indeks tablicy: ";
+	int indeks;
+
+	cout << "Podaj indeks: ";
 	cin >> indeks;
-	
-	cout << tab[indeks] << endl;	
+
+	cout << "Element " << indeks << " = " << tablica[indeks] << endl;
 }
 
 int main()
 {
-	tablica *tab = new tablica[2];
+	tab_dyn qqq;
+
+	qqq.stworz_tablice();
+
+	qqq.rozmiar_tablicy();
+
+	qqq.dodaj_element();
+
+	qqq.wyswietl_element();
 
 	return 0;
 }
