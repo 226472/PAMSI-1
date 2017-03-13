@@ -1,35 +1,73 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
-class tab_dyn // klasa tab_dyn
-{
+class tab_dyn { // klasa tab_dyn
+
 public:
 	int stworz_tablice();
 	void rozmiar_tablicy();
 	int dodaj_element();
-	void wyswietl_element();
+	int wyswietl_element();
+
+	int wypelnij_tablice();
+	void wyswietl_tablice();
 
 private:
 	int tablica[];
 	int ROZMIAR;
 
+	int powieksz_tablice1();
+
 };
 
-int tab_dyn::stworz_tablice()
+void tab_dyn::rozmiar_tablicy()
 {
-	cout << "Podaj poczatkowy rozmiar tablicy: ";
-	cin >> ROZMIAR;
+	cout << "ROZMIAR " << ROZMIAR << endl;
+}
 
-	tablica[ROZMIAR];
+void tab_dyn::wyswietl_tablice()
+{
+	for (int i=0 ; i < ROZMIAR ; i++)
+	{
+		cout << tablica[i] << " ";
+	}
+
+	cout <<  endl;
+}
+
+int tab_dyn::powieksz_tablice1()
+{
+	ROZMIAR = ROZMIAR+1;
 
 	return tablica[ROZMIAR];
 }
 
-void tab_dyn::rozmiar_tablicy()
+int tab_dyn::wypelnij_tablice()
 {
-	cout << ROZMIAR << endl;
+	int ilosc;
+
+	cout << "Ile wartosci chcesz wprowadzic ? ";
+	cin >> ilosc;
+
+	for (int i=1 ; i < ilosc ; i++)
+	{
+		tablica[i] = 0;
+	}	
+
+	return tablica[ROZMIAR];
 }
+
+int tab_dyn::stworz_tablice()
+{
+	cout << "Wpisz poczatkowa dlugosc tablicy: ";
+	cin >> ROZMIAR;
+
+	return tablica[ROZMIAR];
+}
+
+/*
 
 int tab_dyn::dodaj_element()
 {
@@ -37,6 +75,14 @@ int tab_dyn::dodaj_element()
 
 	cout << "Podaj indeks: ";
 	cin >> indeks;
+
+	if (indeks > (ROZMIAR-1))
+	{
+		cout << "Blad" << endl;
+
+		return 0;
+	}
+
 	cout << "Podaj wartosc elementu: ";
 	cin >> element;
 
@@ -45,27 +91,44 @@ int tab_dyn::dodaj_element()
 	return tablica[ROZMIAR];
 }
 
-void tab_dyn::wyswietl_element()
+int tab_dyn::wyswietl_element()
 {
 	int indeks;
 
 	cout << "Podaj indeks: ";
 	cin >> indeks;
 
-	cout << "Element " << indeks << " = " << tablica[indeks] << endl;
+	if(indeks <= ROZMIAR)
+	{
+		cout << "Element " << indeks << " = " << tablica[indeks] << endl;
+	}
+
+	else
+	{
+		cout << "Blad" << endl;
+
+		return 0;
+	}
+
 }
+
+*/
 
 int main()
 {
-	tab_dyn qqq;
+	//srand( time (NULL) );
 
-	qqq.stworz_tablice();
+	tab_dyn TAB;
 
-	qqq.rozmiar_tablicy();
+	TAB.stworz_tablice();
 
-	qqq.dodaj_element();
+	TAB.rozmiar_tablicy();
 
-	qqq.wyswietl_element();
+	TAB.wypelnij_tablice();
+
+	TAB.wyswietl_tablice();
+
+	TAB.rozmiar_tablicy();
 
 	return 0;
 }
