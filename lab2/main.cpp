@@ -1,18 +1,20 @@
 #include <iostream>
-#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-class tab_dyn { // klasa tab_dyn
+// definicja klasy tab_dyn
+
+class tab_dyn {//.............................
 
 public:
-	int stworz_tablice();
+	int inicjuj_tablice();
+	void wypelnij_tablice();
 	void rozmiar_tablicy();
-	int dodaj_element();
-	int wyswietl_element();
-
-	int wypelnij_tablice();
 	void wyswietl_tablice();
+
+	tab_dyn();
+	~tab_dyn();
 
 private:
 	int *tablica = NULL;
@@ -21,14 +23,49 @@ private:
 	int powieksz_tablice1();
 	int powieksz_tablice2();
 
-};
+};//..........................................
 
-void tab_dyn::rozmiar_tablicy()
+/*
+	Publiczne metody klasy
+*/
+
+tab_dyn::tab_dyn()  // konstruktor dla klasy tab_dyn
 {
-	cout << "ROZMIAR " << ROZMIAR << endl;
+	tablica = new int [ROZMIAR];   // rezerwacja pamieci 
 }
 
-void tab_dyn::wyswietl_tablice()
+tab_dyn::~tab_dyn()  // destruktor dla klasy tab_dyn
+{
+	delete tablica;            // zwolnienie pamieci
+}
+
+int tab_dyn::inicjuj_tablice()    // metoda wyznaczajaca poczatkowy rozmiar tablicy
+{
+	cout << "Wpisz poczatkowa dlugosc tablicy: ";
+	cin >> ROZMIAR;
+
+	return ROZMIAR;
+}
+
+void tab_dyn::wypelnij_tablice()   // metoda wypelniajaca tablice podawana przez uzytkownika liczba wartosci , jesli chcemy wprowadzic wiecej wartosci niz wynosi rozmiar tablicy powieksza sie ona automatycznie
+{
+	int ilosc;
+
+	cout << "Ile wartosci chcesz wprowadzic ? ";
+	cin >> ilosc;
+
+	for (int i=0 ; i < ilosc ; i++)
+	{
+		tablica[i] = 1;   // wypelnianie tablicy jedynkami
+
+		if (i >= ROZMIAR)   // warunek na powiekszenie tablicy (osiagniecie konca rozmiaru tablicy)
+		{
+			powieksz_tablice1(); // funkcja powiekszajaca tablice
+		}
+	}	
+}
+
+void tab_dyn::wyswietl_tablice()  // metoda wyswietlajaca cala tablice (puste miejsca takze) na standardowe wyjscie
 {
 	for (int i=0 ; i < ROZMIAR ; i++)
 	{
@@ -38,102 +75,36 @@ void tab_dyn::wyswietl_tablice()
 	cout <<  endl;
 }
 
-int tab_dyn::powieksz_tablice1()
+void tab_dyn::rozmiar_tablicy()  // metoda wyswietlajaca aktualny rozmiar tablicy na standardowe wyjscie
+{
+	cout << "Aktualny rozmiar tablicy: " << ROZMIAR << endl;
+}
+
+/*
+	Prywatne metody klasy
+*/
+
+int tab_dyn::powieksz_tablice1() // metoda powieksza tablice o 1
 {
 	ROZMIAR = ROZMIAR+1;
 
 	return ROZMIAR;
 }
 
-int tab_dyn::powieksz_tablice2()
+int tab_dyn::powieksz_tablice2()  // metoda powieksza tablice dwukrotnie
 {
 	ROZMIAR = 2 * ROZMIAR;
 
 	return ROZMIAR;
 }
 
-int tab_dyn::wypelnij_tablice()
-{
-	int ilosc;
-
-	cout << "Ile wartosci chcesz wprowadzic ? ";
-	cin >> ilosc;
-
-	for (int i=0 ; i < ilosc ; i++)
-	{
-		tablica[i] = 1;
-
-		if (i >= ROZMIAR)
-		{
-			powieksz_tablice2();
-		}
-	}	
-}
-
-int tab_dyn::stworz_tablice()
-{
-	cout << "Wpisz poczatkowa dlugosc tablicy: ";
-	cin >> ROZMIAR;
-
-	tablica = new int[ROZMIAR];
-
-	return *tablica;
-}
-
-/*
-
-int tab_dyn::dodaj_element()
-{
-	int element, indeks;
-
-	cout << "Podaj indeks: ";
-	cin >> indeks;
-
-	if (indeks > (ROZMIAR-1))
-	{
-		cout << "Blad" << endl;
-
-		return 0;
-	}
-
-	cout << "Podaj wartosc elementu: ";
-	cin >> element;
-
-	tablica[indeks] = element;
-
-	return tablica[ROZMIAR];
-}
-
-int tab_dyn::wyswietl_element()
-{
-	int indeks;
-
-	cout << "Podaj indeks: ";
-	cin >> indeks;
-
-	if(indeks <= ROZMIAR)
-	{
-		cout << "Element " << indeks << " = " << tablica[indeks] << endl;
-	}
-
-	else
-	{
-		cout << "Blad" << endl;
-
-		return 0;
-	}
-
-}
-
-*/
-
 int main()
 {
-	//srand( time (NULL) );
+	clock_t start = clock();
 
 	tab_dyn TAB;
 
-	TAB.stworz_tablice();
+	TAB.inicjuj_tablice();
 
 	TAB.rozmiar_tablicy();
 
@@ -142,6 +113,8 @@ int main()
 	TAB.wyswietl_tablice();
 
 	TAB.rozmiar_tablicy();
+
+	cout << "Czas dzialania algorytmu to " << ((clock() - start)) / (double) CLOCKS_PER_SEC << " s." << endl;
 
 	return 0;
 }
