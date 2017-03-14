@@ -15,10 +15,11 @@ public:
 	void wyswietl_tablice();
 
 private:
-	int tablica[];
+	int *tablica = NULL;
 	int ROZMIAR;
 
 	int powieksz_tablice1();
+	int powieksz_tablice2();
 
 };
 
@@ -41,7 +42,14 @@ int tab_dyn::powieksz_tablice1()
 {
 	ROZMIAR = ROZMIAR+1;
 
-	return tablica[ROZMIAR];
+	return ROZMIAR;
+}
+
+int tab_dyn::powieksz_tablice2()
+{
+	ROZMIAR = 2 * ROZMIAR;
+
+	return ROZMIAR;
 }
 
 int tab_dyn::wypelnij_tablice()
@@ -51,12 +59,15 @@ int tab_dyn::wypelnij_tablice()
 	cout << "Ile wartosci chcesz wprowadzic ? ";
 	cin >> ilosc;
 
-	for (int i=1 ; i < ilosc ; i++)
+	for (int i=0 ; i < ilosc ; i++)
 	{
-		tablica[i] = 0;
-	}	
+		tablica[i] = 1;
 
-	return tablica[ROZMIAR];
+		if (i >= ROZMIAR)
+		{
+			powieksz_tablice2();
+		}
+	}	
 }
 
 int tab_dyn::stworz_tablice()
@@ -64,7 +75,9 @@ int tab_dyn::stworz_tablice()
 	cout << "Wpisz poczatkowa dlugosc tablicy: ";
 	cin >> ROZMIAR;
 
-	return tablica[ROZMIAR];
+	tablica = new int[ROZMIAR];
+
+	return *tablica;
 }
 
 /*
