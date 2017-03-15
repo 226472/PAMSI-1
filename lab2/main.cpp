@@ -1,5 +1,9 @@
+// lab2
+// by 226238 Damian Jachowicz
+
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -12,7 +16,7 @@ public:
 	void rozmiar_tablicy();
 	void wyswietl_tablice();
 
-	tab_dyn(int rozmiar);
+	tab_dyn();
 	~tab_dyn();
 
 private:
@@ -28,11 +32,26 @@ private:
 	Publiczne metody klasy
 */
 
-tab_dyn::tab_dyn(int rozmiar)  // konstruktor dla klasy tab_dyn
+tab_dyn::tab_dyn()  // konstruktor dla klasy tab_dyn
 {
-	tablica = new int [rozmiar];   // rezerwacja pamieci 
+	//cout << "Podaj poczatkowy rozmiar tablicy: ";
+	//cin >> ROZMIAR;
 
-	ROZMIAR = rozmiar;
+	ROZMIAR = 10;
+	
+	if (ROZMIAR >= 0)
+	{	
+		tablica = new int [ROZMIAR];   // rezerwacja pamieci
+	}
+
+	else
+	{
+		cout << "Blad konstruktora" << endl;
+
+		exit(0);
+	}
+
+	 
 }
 
 tab_dyn::~tab_dyn()  // destruktor dla klasy tab_dyn
@@ -47,12 +66,19 @@ void tab_dyn::dodaj_element(int indeks, int wartosc)
 		tablica[indeks] = wartosc;
 	}
 
-	else if (indeks >= ROZMIAR)   // warunek na powiekszenie tablicy (osiagniecie konca rozmiaru tablicy)
+	else if (indeks >= ROZMIAR)   // warunek na powiekszenie tablicy (osiagniecie aktualnego konca rozmiaru tablicy)
 	{
-		tablica = powieksz_tablice1(tablica);   // funkcja powiekszajaca tablice
+		tablica = powieksz_tablice1(tablica);   // powiekszanie tablicy odpowiednia funkcja
 
-		tablica[indeks] = wartosc;
+		tablica[indeks] = wartosc;       // dodawanie wartosci po zwiekszeniu
 	}	
+
+	else
+	{
+		cout << "Blad funkcji dodaj_element." << endl;
+
+		exit(0);
+	}
 }
 
 void tab_dyn::wyswietl_tablice()  // metoda wyswietlajaca cala tablice (puste miejsca takze) na standardowe wyjscie
@@ -76,45 +102,46 @@ void tab_dyn::rozmiar_tablicy()  // metoda wyswietlajaca aktualny rozmiar tablic
 
 int *tab_dyn::powieksz_tablice1(int old_tablica[]) // metoda powieksza tablice o 1
 {
-	ROZMIAR++;
+	ROZMIAR++;                   // powiekszanie tablicy
 
-	int * new_tablica = new int [ROZMIAR];
+	int * new_tablica = new int [ROZMIAR];    // rezerwacja pamieci na nowa tablice
 
-	for(int i=0 ; i < (ROZMIAR-1) ; i++)
+	for(int i=0 ; i < (ROZMIAR-1) ; i++)    // kopiowanie starej tablicy do nowej
 	{
-		new_tablica[i] = old_tablica[i];
+		new_tablica[i] = old_tablica[i];    
 	}
 
-	//ROZMIAR = rozmiar;
-
-	delete [] old_tablica;
+	delete [] old_tablica;  // zwalnianie pamieci ze starej tablicy
 
 	return new_tablica;
 }
 
 int *tab_dyn::powieksz_tablice2(int old_tablica[])  // metoda powieksza tablice dwukrotnie
 {
-	ROZMIAR *= 2;
+	ROZMIAR *= 2;      // powiekszanie tablicy
 
-	int * new_tablica = new int [ROZMIAR];
+	int * new_tablica = new int [ROZMIAR];     // rezerwacja pamieci na nowa tablice
 
-	for(int i=0 ; i < (ROZMIAR/2) ; i++)
+	for(int i=0 ; i < (ROZMIAR/2) ; i++)    // kopiowanie starej tablicy do nowej
 	{
 		new_tablica[i] = old_tablica[i];
 	}
 
-	//ROZMIAR = rozmiar;
-
-	delete [] old_tablica;
+	delete [] old_tablica;      // zwalnianie pamieci ze starej tablicy
 
 	return new_tablica;
 }
 
 int main()
 {
+/*
+	Program tworzy pusta tablice 10 elementowa po czym wypelnia ja od poczatku elementami = 1 . Jezeli liczba elementow do wypelnienia jest wieksza niz rozmiar tablicy
+	program powieksza tablice odpowiednia funkcja (o 1 albo 2 razy). Na koncu podaje czas dzialania algorytmu.
+*/
+
 	clock_t start = clock();
 
-	tab_dyn TAB(10); // poczatkowy rozmiar tablicy to 10
+	tab_dyn TAB; // poczatkowy rozmiar tablicy ustawiony na 10
 
 	TAB.rozmiar_tablicy();
 
@@ -132,7 +159,7 @@ int main()
 
 	TAB.rozmiar_tablicy();
 
-	cout << "Czas dzialania algorytmu to " << ((clock() - start)) / (double) CLOCKS_PER_SEC << " s." << endl;
+	cout << "Czas dzialania algorytmu to " << ((clock() - start)) / (double) CLOCKS_PER_SEC << " s." << endl; // liczenie czasu dzialania algorytmu w sekundach
 
 	return 0;
 }
