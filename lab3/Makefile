@@ -3,8 +3,8 @@
 #
 CPPFLAGS= -c -g -Iinc -Wall -pedantic
 
-benchmark: obj/main.o obj/tablica.o obj/interfejs.o obj/stoper.o
-	g++ -Wall -pedantic -o benchmark obj/main.o  obj/stoper.o obj/interfejs.o obj/tablica.o
+benchmark.out: obj/main.o obj/tablica.o obj/interfejs.o obj/stoper.o
+	g++ -Wall -pedantic -o benchmark.out obj/main.o  obj/stoper.o obj/interfejs.o obj/tablica.o
 
 obj/main.o: src/main.cpp inc/tablica.hh inc/interfejs.hh inc/stoper.hh
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
@@ -19,4 +19,4 @@ obj/stoper.o: src/stoper.cpp inc/stoper.hh
 	g++ ${CPPFLAGS} -o obj/stoper.o src/stoper.cpp
 
 clean:
-	rm -f obj/*.o benchmark
+	rm -f obj/*.o benchmark.out
