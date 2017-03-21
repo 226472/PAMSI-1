@@ -2,12 +2,12 @@
 #define INTERFEJS_HH
 
 /*
-	abstrakcyjna klasa interfejs
+	czysto abstrakcyjna klasa interfejs
 */
 
 class interfejs{
 public:
-	virtual void wykonaj_algorytm() = 0; // wirtualna metoda bez ciala
+	virtual void wykonaj_algorytm() = 0; // czysto wirtualna metoda bez ciala
 };
 
 #endif

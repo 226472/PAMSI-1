@@ -110,9 +110,7 @@ int *tab_dyn::powieksz_tablice2(int old_tablica[])  // metoda powieksza tablice 
 
 void tab_dyn::wykonaj_algorytm()
 {
-	tab_dyn TAB; // poczatkowy rozmiar tablicy ustawiony na 10
-
-	TAB.rozmiar_tablicy();
+	rozmiar_tablicy();
 
 	int ilosc;
 
@@ -121,10 +119,10 @@ void tab_dyn::wykonaj_algorytm()
 
 	for (int i=0 ; i < ilosc ; i++)
 	{
-		TAB.dodaj_element(i,1);
+		dodaj_element(i,1);
 	}
 
-	TAB.wyswietl_tablice();
+	wyswietl_tablice();
 
-	TAB.rozmiar_tablicy();
+	rozmiar_tablicy();
 }

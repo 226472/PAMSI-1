@@ -7,13 +7,19 @@
 
 using namespace std;
 
+void testuj(interfejs & obiekt_testowy)
+{
+	obiekt_testowy.wykonaj_algorytm();
+}
+
 int main()
 {
 	stoper stoper;
-	tab_dyn obiekt_testowy;
+	test test1;
+	tab_dyn tab_dyn1;
 
 	stoper.start();
-	obiekt_testowy.wykonaj_algorytm();
+	testuj(tab_dyn1);
 	stoper.stop();
 
 	return 0;

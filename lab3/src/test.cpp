@@ -20,14 +20,12 @@ void test::metoda2()
 
 void test::metoda3()
 {
-	cout << "metoda1" << endl;
+	cout << "metoda3" << endl;
 }
 
 void test::wykonaj_algorytm()
 {
-	test test;
-
-	test.metoda1();
-	test.metoda1();
-	test.metoda1();
+	metoda1();
+	metoda2();
+	metoda3();
 }
