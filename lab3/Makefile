@@ -1,12 +1,12 @@
 #
 #  To sa opcje dla kompilacji
 #
-CPPFLAGS= -c -g -Iinc -Wall -pedantic
+CPPFLAGS = -c -g -Iinc -Wall -pedantic
 
-benchmark.out: obj/main.o obj/tablica.o obj/interfejs.o obj/stoper.o
-	g++ -Wall -pedantic -o benchmark.out obj/main.o  obj/stoper.o obj/interfejs.o obj/tablica.o
+benchmark.out: obj/main.o obj/tablica.o obj/interfejs.o obj/stoper.o obj/test.o
+	g++ -Wall -pedantic -o benchmark.out obj/main.o  obj/stoper.o obj/interfejs.o obj/tablica.o obj/test.o
 
-obj/main.o: src/main.cpp inc/tablica.hh inc/interfejs.hh inc/stoper.hh
+obj/main.o: src/main.cpp inc/tablica.hh inc/interfejs.hh inc/stoper.hh inc/test.hh
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
 
 obj/tablica.o: src/tablica.cpp inc/tablica.hh
@@ -17,6 +17,9 @@ obj/interfejs.o: src/interfejs.cpp inc/interfejs.hh
 
 obj/stoper.o: src/stoper.cpp inc/stoper.hh
 	g++ ${CPPFLAGS} -o obj/stoper.o src/stoper.cpp
+
+obj/test.o: src/test.cpp inc/test.hh
+	g++ ${CPPFLAGS} -o obj/test.o src/test.cpp
 
 clean:
 	rm -f obj/*.o benchmark.out

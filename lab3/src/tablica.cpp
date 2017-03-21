@@ -27,9 +27,7 @@ tab_dyn::tab_dyn()  // konstruktor dla klasy tab_dyn
 		cout << "Blad konstruktora" << endl;
 
 		exit(0);
-	}
-
-	 
+	}	 
 }
 
 tab_dyn::~tab_dyn()  // destruktor dla klasy tab_dyn
@@ -130,36 +128,3 @@ void tab_dyn::wykonaj_algorytm()
 
 	TAB.rozmiar_tablicy();
 }
-
-/*
-int main()
-{
-
-	Program tworzy pusta tablice 10 elementowa po czym wypelnia ja od poczatku elementami = 1 . Jezeli liczba elementow do wypelnienia jest wieksza niz rozmiar tablicy
-	program powieksza tablice odpowiednia funkcja (o 1 albo 2 razy). Na koncu podaje czas dzialania algorytmu.
-
-
-	clock_t start = clock();
-
-	tab_dyn TAB; // poczatkowy rozmiar tablicy ustawiony na 10
-
-	TAB.rozmiar_tablicy();
-
-	int ilosc;
-
-	cout << "Ile elementow chcesz wprowadzic? ";
-	cin >> ilosc;
-
-	for (int i=0 ; i < ilosc ; i++)
-	{
-		TAB.dodaj_element(i,1);
-	}
-
-	TAB.wyswietl_tablice();
-
-	TAB.rozmiar_tablicy();
-
-	cout << "Czas dzialania algorytmu to " << ((clock() - start)) / (double) CLOCKS_PER_SEC << " s." << endl; // liczenie czasu dzialania algorytmu w sekundach
-
-	return 0;
-}*/
