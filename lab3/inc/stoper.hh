@@ -1,12 +1,14 @@
 #ifndef STOPER_HH
 #define STOPER_HH
 
+#include <ctime>
+
 class stoper{
 public:
 	void start();
 	void stop();
 private:
-	int czas;
+	clock_t czas;
 };
 
 #endif

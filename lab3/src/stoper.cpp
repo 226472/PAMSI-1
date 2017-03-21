@@ -1,13 +1,18 @@
 #include "stoper.hh"
 
 #include <ctime>
+#include <iostream>
+
+using namespace std;
 
 void stoper::start()
 {
-	clock_t czas = clock();
+	czas = clock();
 }
 
 void stoper::stop()
 {
-	((clock() - czas)) / (double) CLOCKS_PER_SEC;
+	double ile_czasu = ((clock() - czas)) / (double) CLOCKS_PER_SEC;
+
+	cout << "Czas trwania programu to " << ile_czasu << " s." << endl;
 }

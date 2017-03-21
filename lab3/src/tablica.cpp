@@ -109,6 +109,28 @@ int *tab_dyn::powieksz_tablice2(int old_tablica[])  // metoda powieksza tablice 
 
 	return new_tablica;
 }
+
+void tab_dyn::wykonaj_algorytm()
+{
+	tab_dyn TAB; // poczatkowy rozmiar tablicy ustawiony na 10
+
+	TAB.rozmiar_tablicy();
+
+	int ilosc;
+
+	cout << "Ile elementow chcesz wprowadzic? ";
+	cin >> ilosc;
+
+	for (int i=0 ; i < ilosc ; i++)
+	{
+		TAB.dodaj_element(i,1);
+	}
+
+	TAB.wyswietl_tablice();
+
+	TAB.rozmiar_tablicy();
+}
+
 /*
 int main()
 {
