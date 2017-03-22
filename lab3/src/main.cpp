@@ -18,9 +18,14 @@ int main()
 	test test1;
 	tab_dyn tab_dyn1;
 
-	stoper.start();
-	testuj(tab_dyn1);
-	stoper.stop();
+	for (int i=0 ; i < 10 ; i++)
+	{
+		cout << "Test nr. " << i+1 << endl;
+
+		stoper.start();
+		testuj(tab_dyn1);
+		stoper.stop();
+	}
 
 	return 0;
 }

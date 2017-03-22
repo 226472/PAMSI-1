@@ -117,12 +117,14 @@ void tab_dyn::wykonaj_algorytm()
 	cout << "Ile elementow chcesz wprowadzic? ";
 	cin >> ilosc;
 
+	//ilosc = 10;
+
 	for (int i=0 ; i < ilosc ; i++)
 	{
 		dodaj_element(i,1);
 	}
 
-	wyswietl_tablice();
+	//wyswietl_tablice();
 
 	rozmiar_tablicy();
 }
