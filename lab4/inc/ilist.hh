@@ -12,7 +12,6 @@ public:
 	virtual void size() = 0;
 	virtual void get() = 0;
 	virtual void find() = 0;
-	virtual void wykonaj_algorytm() = 0;
 };
 
 #endif
