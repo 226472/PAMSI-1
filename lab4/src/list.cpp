@@ -1,5 +1,5 @@
 #include "list.hh"
-#include "iostream"
+#include <iostream>
 
 using namespace std;
 
@@ -22,11 +22,6 @@ void list::size()
 
 }
 
-void list::get()
-{
-
-}
-
 void list::find()
 {
 
@@ -34,5 +29,5 @@ void list::find()
 
 void list::run()
 {
-	cout << "list" << endl;
+
 }

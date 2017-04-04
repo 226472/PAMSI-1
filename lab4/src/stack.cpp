@@ -73,6 +73,13 @@ void stack::size()
 	cout << endl;
 }
 
+void stack::find()
+{
+	wsk = & _stack[SIZE-1];
+
+	cout << "Wskaznik: " << *wsk << endl;
+}
+
 void stack::run()
 {
 	int ile;
@@ -89,6 +96,8 @@ void stack::run()
 
 	size();
 
+	find();
+
 	cout << "Ile elementow zdjac: ";
 	cin >> ile;
 
@@ -98,4 +107,6 @@ void stack::run()
 	}
 
 	size();
+
+	find();
 }

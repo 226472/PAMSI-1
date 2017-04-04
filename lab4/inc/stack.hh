@@ -15,6 +15,7 @@ public:
 	void push();
 	void pop();
 	void size();
+	void find();
 	void run();
 
 	stack();
@@ -23,6 +24,7 @@ public:
 private:
 	int  *_stack = NULL;
 	int SIZE;
+	int *wsk = NULL;
 };
 
 #endif

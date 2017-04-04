@@ -4,6 +4,8 @@
 #include "iqueue.hh"
 #include "irunnable.hh"
 
+#include <cstdlib>
+
 /*
 	klasa queue
 */
@@ -13,7 +15,16 @@ public:
 	void enqueue();
 	void dequeue();
 	void size();
+	void find();
 	void run();
+
+	queue();
+	~queue();
+
+private:
+	int  *_queue = NULL;
+	int SIZE;
+	int *wsk = NULL;
 };
 
 #endif

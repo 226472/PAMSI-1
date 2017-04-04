@@ -13,7 +13,6 @@ public:
 	void add();
 	void remove();
 	void size();
-	void get();
 	void find();
 	void run();
 
