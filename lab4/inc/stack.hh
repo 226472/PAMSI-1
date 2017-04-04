@@ -4,6 +4,8 @@
 #include "istack.hh"
 #include "irunnable.hh"
 
+#include <cstdlib>
+
 /*
 	klasa stack
 */
@@ -13,18 +15,14 @@ public:
 	void push();
 	void pop();
 	void size();
-
-	void start();
-	void stop();
-
 	void run();
 
 	stack();
 	~stack();
 
 private:
-	//int _stack[] = NULL;
-	//int SIZE;
+	int  *_stack = NULL;
+	int SIZE;
 };
 
 #endif
