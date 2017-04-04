@@ -2,7 +2,7 @@
 #define ILIST_HH
 
 /*
-	interfejs istack
+	interfejs ilist
 */
 
 class ilist{

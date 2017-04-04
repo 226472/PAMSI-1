@@ -2,12 +2,13 @@
 #define STACK_HH
 
 #include "istack.hh"
+#include "irunnable.hh"
 
 /*
 	klasa stack
 */
 
-class stack : public istack , public : iclock{
+class stack : public istack , public irunnable{
 public:
 	void push();
 	void pop();
@@ -16,12 +17,14 @@ public:
 	void start();
 	void stop();
 
+	void run();
+
 	stack();
 	~stack();
 
 private:
-	int _stack[] = NULL;
-	int SIZE;
+	//int _stack[] = NULL;
+	//int SIZE;
 };
 
 #endif
