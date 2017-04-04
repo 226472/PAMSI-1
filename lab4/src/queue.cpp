@@ -75,9 +75,32 @@ void queue::size()
 
 void queue::find()
 {
+	if(znajdz == NULL)
+	{
+		int wartosc;
+		cout << "Wpisz szukana wartosc: ";
+		cin >> wartosc;
+		znajdz = &wartosc;
+	}
+
 	wsk = & _queue[0];
 
-	cout << "Wskaznik: " << *wsk << endl;
+	if(*znajdz == *wsk)
+	{
+		cout << "Szukana wartosc znaleziona!" << endl;
+		znajdz = NULL;
+	}
+
+	else if(*znajdz != *wsk)
+	{
+		dequeue();
+		find();
+	}
+
+	else
+	{
+		cout << "Nie znaleziono szukanej wartosci!" << endl;
+	}
 }
 
 void queue::run()
@@ -98,6 +121,8 @@ void queue::run()
 
 	find();
 
+	size();
+
 	cout << "Ile elementow zdjac: ";
 	cin >> ile;
 
@@ -109,4 +134,6 @@ void queue::run()
 	size();
 
 	find();
+
+	size();
 }

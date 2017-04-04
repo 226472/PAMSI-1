@@ -75,9 +75,32 @@ void stack::size()
 
 void stack::find()
 {
+	if(znajdz == NULL)
+	{
+		int wartosc;
+		cout << "Wpisz szukana wartosc: ";
+		cin >> wartosc;
+		znajdz = &wartosc;
+	}
+
 	wsk = & _stack[SIZE-1];
 
-	cout << "Wskaznik: " << *wsk << endl;
+	if(*znajdz == *wsk)
+	{
+		cout << "Szukana wartosc znaleziona!" << endl;
+		znajdz = NULL;
+	}
+
+	else if(*znajdz != *wsk)
+	{
+		pop();
+		find();
+	}
+
+	else
+	{
+		cout << "Nie znaleziono szukanej wartosci!" << endl;
+	}
 }
 
 void stack::run()
@@ -98,6 +121,8 @@ void stack::run()
 
 	find();
 
+	size();
+
 	cout << "Ile elementow zdjac: ";
 	cin >> ile;
 
@@ -109,4 +134,6 @@ void stack::run()
 	size();
 
 	find();
+
+	size();
 }

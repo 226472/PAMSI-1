@@ -25,6 +25,7 @@ private:
 	int  *_stack = NULL;
 	int SIZE;
 	int *wsk = NULL;
+	int *znajdz = NULL;
 };
 
 #endif

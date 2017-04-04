@@ -25,6 +25,7 @@ private:
 	int  *_queue = NULL;
 	int SIZE;
 	int *wsk = NULL;
+	int *znajdz = NULL;
 };
 
 #endif
