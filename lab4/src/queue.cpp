@@ -63,7 +63,7 @@ void queue::dequeue()
 
 void queue::size()
 {
-	cout << "Aktualna ilosc elementow w kolejce to: " << SIZE << endl;
+	cout << "Aktualna ilosc elementow w kolejce to " << SIZE << endl;
 
 	for(int i=0 ; i < SIZE ; i++)
 	{
@@ -100,6 +100,7 @@ void queue::find()
 	else
 	{
 		cout << "Nie znaleziono szukanej wartosci!" << endl;
+		znajdz = NULL;
 	}
 }
 

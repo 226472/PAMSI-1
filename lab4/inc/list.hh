@@ -4,6 +4,8 @@
 #include "ilist.hh"
 #include "irunnable.hh"
 
+#include <cstdlib>
+
 /*
 	klasa list
 */
@@ -16,8 +18,22 @@ public:
 	void find();
 	void run();
 
-private:
+	list();
 
+private:
+	struct elem{
+		int w_elem;
+		elem *next;
+
+		elem()
+		{
+			next = NULL;
+		}
+	};
+
+	elem *head;
+
+	int SIZE;
 };
 
 #endif

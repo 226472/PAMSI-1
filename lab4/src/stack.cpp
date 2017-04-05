@@ -63,7 +63,7 @@ void stack::pop()
 
 void stack::size()
 {
-	cout << "Aktualna ilosc elementow na stosie to: " << SIZE << endl;
+	cout << "Aktualna ilosc elementow na stosie to " << SIZE << endl;
 
 	for(int i=0 ; i < SIZE ; i++)
 	{
@@ -100,6 +100,7 @@ void stack::find()
 	else
 	{
 		cout << "Nie znaleziono szukanej wartosci!" << endl;
+		znajdz = NULL;
 	}
 }
 
