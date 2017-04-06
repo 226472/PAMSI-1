@@ -123,18 +123,4 @@ void queue::run()
 	find();
 
 	size();
-
-	cout << "Ile elementow zdjac: ";
-	cin >> ile;
-
-	for(int i=0 ; i < ile ; i++)
-	{
-		dequeue();
-	}
-
-	size();
-
-	find();
-
-	size();
 }

@@ -22,10 +22,10 @@ public:
 	~queue();
 
 private:
-	int  *_queue = NULL;
+	int  *_queue = NULL;  // kolejka
 	int SIZE;
-	int *wsk = NULL;
-	int *znajdz = NULL;
+	int *wsk = NULL;  // wskaznik na eleme ktory mozna usunac
+	int *znajdz = NULL;  // wskaznik na szukany element
 };
 
 #endif

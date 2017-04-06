@@ -8,9 +8,9 @@ int main()
 	list l1;
 	stack s1;
 	queue q1;
-	measure m1;
+	measure meter;
 
-	m1.gauge(l1);
+	meter.gauge(l1);
 
 	return 0;
 }

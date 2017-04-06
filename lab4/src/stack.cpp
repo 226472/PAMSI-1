@@ -8,36 +8,36 @@ using namespace std;
 	metody klasy stack
 */
 
-stack::stack()
+stack::stack()   // konstruktor stostu pustego
 {
 	SIZE = 0;
 	_stack = new int[SIZE];
 }
 
-stack::~stack()
+stack::~stack()  // destruktor
 {
 	delete [] _stack;
 }
 
-void stack::push()
+void stack::push()   // dodawanie elemntow na stos
 {
 	SIZE++;
 
-	int * new_stack = new int [SIZE];
+	int * new_stack = new int [SIZE];  // tworzenie stosu
 
 	for(int i=0 ; i < (SIZE-1) ; i++)
 	{
-		new_stack[i] = _stack[i];    
+		new_stack[i] = _stack[i];    // kopiowanie elementow z poprzedniego stosu
 	}
 
-	delete [] _stack;
+	delete [] _stack;  // zwalnianie pamieci
 
 	_stack = new_stack;
 
 	_stack[SIZE-1] = SIZE;
 }
 
-void stack::pop()
+void stack::pop()  // zdejmowanie elementow
 {
 	if(SIZE > 0)
 	{
@@ -61,7 +61,7 @@ void stack::pop()
 	}
 }
 
-void stack::size()
+void stack::size()  // pokazywnie rozmiaru i elementow
 {
 	cout << "Aktualna ilosc elementow na stosie to " << SIZE << endl;
 
@@ -73,7 +73,7 @@ void stack::size()
 	cout << endl;
 }
 
-void stack::find()
+void stack::find() // szukanie elementu
 {
 	if(znajdz == NULL)
 	{
@@ -116,20 +116,6 @@ void stack::run()
 	for(int i=0 ; i < ile ; i++)
 	{
 		push();
-	}
-
-	size();
-
-	find();
-
-	size();
-
-	cout << "Ile elementow zdjac: ";
-	cin >> ile;
-
-	for(int i=0 ; i < ile ; i++)
-	{
-		pop();
 	}
 
 	size();

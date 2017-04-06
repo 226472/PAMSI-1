@@ -21,9 +21,9 @@ public:
 	list();
 
 private:
-	struct elem{
-		int w_elem;
-		elem *next;
+	struct elem{  // struktura odpowiadajaca jednemu elementowi na liscie
+		int w_elem;   // wartosc elementu
+		elem *next;   // wskaznik na nastepny element jezeli brak nastepenego to NULL
 
 		elem()
 		{
@@ -31,9 +31,9 @@ private:
 		}
 	};
 
-	elem *head;
+	elem *head;    // wskaznik na pierwszy element listy
 
-	int SIZE;
+	int SIZE;    // licznik do rozmiaru listy
 };
 
 #endif

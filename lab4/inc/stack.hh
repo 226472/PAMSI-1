@@ -22,10 +22,10 @@ public:
 	~stack();
 
 private:
-	int  *_stack = NULL;
+	int  *_stack = NULL;    // stos
 	int SIZE;
-	int *wsk = NULL;
-	int *znajdz = NULL;
+	int *wsk = NULL;   // wskaznik na element ktory mozna zdjac
+	int *znajdz = NULL;   // szukana wartosc
 };
 
 #endif
