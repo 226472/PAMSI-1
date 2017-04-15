@@ -10,7 +10,7 @@ int main()
 	queue q1;
 	measure meter;
 
-	meter.gauge(l1);
+	meter.gauge(q1);
 
 	return 0;
 }
