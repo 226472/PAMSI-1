@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
@@ -59,7 +58,10 @@ void table::quicksort(int tab[], int left, int right)
 
 		if (i <= j)
 		{
-			swap(tab[i], tab[j]);  // chyba mozna uzyc swap ??? bez sensu pisac te 3 linijki na zamiane elementow...
+			int bufor = tab[i];
+			tab[i] = tab[j];
+			tab[j] = bufor;
+
 			i++;
 			j--;
 		}
@@ -74,7 +76,7 @@ void table::run()
 {
 	srand(time(NULL));
 
-	//size();
+	size();
 	quicksort(_table,0,(ROZMIAR-1));
-	//size();
+	size();
 }
