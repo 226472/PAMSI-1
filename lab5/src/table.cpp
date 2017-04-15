@@ -16,7 +16,7 @@ table::table()
 
 	for (int i=0 ; i < ROZMIAR ; i++)
 	{
-		//_table[i] = ((rand() % ROZMIAR) + 1);  // losowe liczby z zakresu od 1 do ROZMIAR 
+		_table[i] = ((rand() % ROZMIAR) + 1);  // losowe liczby z zakresu od 1 do ROZMIAR 
 		//_table[i] = i;                         // rosnace liczby
 		//_table[i] = (ROZMIAR-i);               // malejace liczby
 	}
@@ -40,7 +40,7 @@ void table::quicksort(int tab[], int left, int right)
 {
 	int i = left;
 	int j = right;
-	
+
 	int pivot = tab[(left+right)/2];  // pivot po srodku
 	//int pivot = tab[left];            // pivot lewy skrajny
 	//int pivot = tab[right];           // pivot prawy skrajny
@@ -59,7 +59,7 @@ void table::quicksort(int tab[], int left, int right)
 
 		if (i <= j)
 		{
-			swap(tab[i], tab[j]);
+			swap(tab[i], tab[j]);  // chyba mozna uzyc swap ??? bez sensu pisac te 3 linijki na zamiane elementow...
 			i++;
 			j--;
 		}
