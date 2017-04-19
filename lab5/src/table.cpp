@@ -13,11 +13,13 @@ table::table()
 
 	_table = new int [ROZMIAR];
 
+	srand(time(NULL));
+
 	for (int i=0 ; i < ROZMIAR ; i++)
 	{
-		_table[i] = ((rand() % ROZMIAR) + 1);  // losowe liczby z zakresu od 1 do ROZMIAR 
-		//_table[i] = i;                         // rosnace liczby
-		//_table[i] = (ROZMIAR-i);               // malejace liczby
+		//_table[i] = ((rand() % ROZMIAR) + 1);  // losowe liczby z zakresu od 1 do ROZMIAR 
+		//_table[i] = i+1;                         // rosnace liczby
+		_table[i] = (ROZMIAR-i);               // malejace liczby
 	}
 }
 
@@ -40,9 +42,9 @@ void table::quicksort(int tab[], int left, int right)
 	int i = left;
 	int j = right;
 
-	int pivot = tab[(left+right)/2];  // pivot po srodku
+	//int pivot = tab[(left+right)/2];  // pivot po srodku
 	//int pivot = tab[left];            // pivot lewy skrajny
-	//int pivot = tab[right];           // pivot prawy skrajny
+	int pivot = tab[right];           // pivot prawy skrajny
 
 	do
 	{
@@ -74,9 +76,7 @@ void table::quicksort(int tab[], int left, int right)
 
 void table::run()
 {
-	srand(time(NULL));
-
-	size();
+	//size();
 	quicksort(_table,0,(ROZMIAR-1));
-	size();
+	//size();
 }
